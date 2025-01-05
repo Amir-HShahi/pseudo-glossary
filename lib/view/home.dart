@@ -28,8 +28,10 @@ class _HomeState extends State<Home> {
                     fontWeight: FontWeight.bold)),
             SizedBox(height: 32),
             Text(
-                "A database system developed by Microsoft. Part of Microsoft Office Professional. Mostly used on low traffic web sites running on the Windows platform.",
-                style: TextStyle(color: Colors.white, fontSize: 16), textAlign: TextAlign.center,),
+              "A database system developed by Microsoft. Part of Microsoft Office Professional. Mostly used on low traffic web sites running on the Windows platform.",
+              style: TextStyle(color: Colors.white, fontSize: 16),
+              textAlign: TextAlign.center,
+            ),
             const Spacer(),
             OutlinedButton(
               onPressed: () {},
