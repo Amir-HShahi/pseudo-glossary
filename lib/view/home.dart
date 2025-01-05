@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sudo_random/view_model/term_model_view.dart';
 
@@ -26,7 +27,8 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
           backgroundColor: Colors.black,
           centerTitle: true,
-          title: Text("SUDO Glossary", style: TextStyle(color: Colors.white))),
+          title: Text("SUDO Glossary",
+              style: GoogleFonts.luxuriousRoman(color: Colors.white))),
       body: Container(
         padding: EdgeInsets.only(top: 90, bottom: 180, left: 16, right: 16),
         child: Column(
@@ -53,14 +55,19 @@ class _HomeState extends State<Home> {
               style: OutlinedButton.styleFrom(
                   backgroundColor: Colors.white, fixedSize: Size(256, 64)),
               child: Text("RANDOM",
-                  style: TextStyle(color: Colors.black, fontSize: 30)),
+                  style: GoogleFonts.literata(
+                      fontSize: 30,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold)),
             ),
             SizedBox(height: 32),
             OutlinedButton(
               onPressed: revealDescription,
               style: OutlinedButton.styleFrom(
                   backgroundColor: Colors.white, fixedSize: Size(128, 32)),
-              child: Text("REVEAL", style: TextStyle(color: Colors.black)),
+              child: Text("REVEAL",
+                  style: GoogleFonts.literata(
+                      color: Colors.black, fontWeight: FontWeight.bold)),
             )
           ],
         ),
