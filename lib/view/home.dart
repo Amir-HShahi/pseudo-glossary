@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
               opacity: term.isDescriptionHidden ? 0 : 1,
               child: Text(
                 term.description,
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: TextStyle(color: Colors.white, fontSize: 18),
                 textAlign: TextAlign.center,
               ),
             ),
