@@ -7,6 +7,7 @@ void main() async {
   await DatabaseHandler.initializeDatabase();
   final bool isDataInitialized = await SharedPreference.hasShownIntro();
   if (!isDataInitialized) {
+    await DatabaseHandler.insertAllTermsToDatabase();
     SharedPreference.setDataAsInitialized(true);
   }
   runApp(const MyApp());
