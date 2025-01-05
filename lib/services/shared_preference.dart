@@ -8,7 +8,7 @@ class SharedPreference {
     return prefs.getBool(_isDataInitialized) ?? false;
   }
 
-  static Future<void> setHasShownIntro(bool value) async {
+  static Future<void> setDataAsInitialized(bool value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool(_isDataInitialized, value);
   }

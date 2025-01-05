@@ -7,7 +7,7 @@ void main() async {
   await DatabaseHandler.initializeDatabase();
   final bool isDataInitialized = await SharedPreference.hasShownIntro();
   if (!isDataInitialized) {
-
+    SharedPreference.setDataAsInitialized(true);
   }
   runApp(const MyApp());
 }
