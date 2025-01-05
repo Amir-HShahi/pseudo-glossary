@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:sudo_random/services/database_handler.dart';
 import 'package:sudo_random/view/home.dart';
 
-void main() {
+void main() async {
+  await DatabaseHandler.initializeDatabase();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
