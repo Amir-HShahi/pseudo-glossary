@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sudo_random/view_model/term_model_view.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,6 +12,15 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<TermViewModel>();
+    final term = viewModel.mainTerm;
+
+    void revealDescription() {
+      setState(() {
+        term.isDescriptionHidden = false;
+      });
+    }
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -21,20 +32,24 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             SizedBox(width: double.infinity),
-            Text("Title",
+            Text(term.title,
                 style: TextStyle(
                     fontSize: 40,
                     color: Colors.white,
                     fontWeight: FontWeight.bold)),
             SizedBox(height: 32),
-            Text(
-              "A database system developed by Microsoft. Part of Microsoft Office Professional. Mostly used on low traffic web sites running on the Windows platform.",
-              style: TextStyle(color: Colors.white, fontSize: 16),
-              textAlign: TextAlign.center,
+            AnimatedOpacity(
+              duration: Duration(milliseconds: 200),
+              opacity: term.isDescriptionHidden ? 0 : 1,
+              child: Text(
+                term.description,
+                style: TextStyle(color: Colors.white, fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
             ),
             const Spacer(),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: viewModel.getRandomTerm,
               style: OutlinedButton.styleFrom(
                   backgroundColor: Colors.white, fixedSize: Size(256, 64)),
               child: Text("RANDOM",
@@ -42,7 +57,7 @@ class _HomeState extends State<Home> {
             ),
             SizedBox(height: 32),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: revealDescription,
               style: OutlinedButton.styleFrom(
                   backgroundColor: Colors.white, fixedSize: Size(128, 32)),
               child: Text("REVEAL", style: TextStyle(color: Colors.black)),

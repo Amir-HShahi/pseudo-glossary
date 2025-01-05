@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:sudo_random/model/term_model.dart';
 import 'package:sudo_random/services/words_info.dart';
 
 class DatabaseHandler {
@@ -35,5 +36,16 @@ class DatabaseHandler {
       id++;
     }
     recordsCount = id;
+  }
+
+  static Future<TermModel> retrieveTermModel(int id) async {
+    final List<Map<String, dynamic>> termMap =
+        await _db.query('terms', where: 'id = ?', whereArgs: [id]);
+
+    if (termMap.isNotEmpty) {
+      Map<String, dynamic> term = termMap.elementAt(0);
+      return TermModel(title: term['title'], description: term['description']);
+    }
+    return TermModel(title: 'title', description: 'gg');
   }
 }

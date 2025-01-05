@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sudo_random/services/database_handler.dart';
 import 'package:sudo_random/services/shared_preference.dart';
 import 'package:sudo_random/view/home.dart';
+import 'package:sudo_random/view_model/term_model_view.dart';
 
 void main() async {
   await DatabaseHandler.initializeDatabase();
@@ -10,7 +12,12 @@ void main() async {
     await DatabaseHandler.insertAllTermsToDatabase();
     SharedPreference.setDataAsInitialized(true);
   }
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => TermViewModel()),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -23,4 +30,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

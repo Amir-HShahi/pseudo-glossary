@@ -1,6 +1,7 @@
-class Term {
+class TermModel {
   final String title;
   final String description;
+  bool isDescriptionHidden = true;
 
-  Term({required this.title, required this.description});
+  TermModel({required this.title, required this.description});
 }
