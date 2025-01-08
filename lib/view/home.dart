@@ -27,14 +27,15 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
           backgroundColor: Colors.black,
           centerTitle: true,
-          title: Text("SUDO Glossary",
+          title: Text("Pseudo Glossary",
               style: GoogleFonts.luxuriousRoman(color: Colors.white))),
       body: Container(
-        padding: EdgeInsets.only(top: 90, bottom: 180, left: 16, right: 16),
+        padding: EdgeInsets.only(top: 90, bottom: 120, left: 16, right: 16),
         child: Column(
           children: [
             SizedBox(width: double.infinity),
             Text(term.title,
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 40,
                     color: Colors.white,
