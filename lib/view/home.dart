@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
                 textAlign: TextAlign.center,
               ),
             ),
-            const Spacer(),
+            const Spacer(), //push to end
             OutlinedButton(
               onPressed: viewModel.getRandomTerm,
               style: OutlinedButton.styleFrom(
