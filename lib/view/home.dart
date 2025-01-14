@@ -14,11 +14,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<TermViewModel>();
-    final term = viewModel.mainTerm;
+    final displayingTerm = viewModel.mainTerm;
 
     void revealDescription() {
       setState(() {
-        term.isDescriptionHidden = false;
+        displayingTerm.isDescriptionHidden = false;
       });
     }
 
@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             SizedBox(width: double.infinity),
-            Text(term.title,
+            Text(displayingTerm.title,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 40,
@@ -43,14 +43,15 @@ class _HomeState extends State<Home> {
             SizedBox(height: 32),
             AnimatedOpacity(
               duration: Duration(milliseconds: 200),
-              opacity: term.isDescriptionHidden ? 0 : 1,
+              opacity: displayingTerm.isDescriptionHidden ? 0 : 1,
               child: Text(
-                term.description,
+                displayingTerm.description,
                 style: TextStyle(color: Colors.white, fontSize: 18),
                 textAlign: TextAlign.center,
               ),
             ),
-            const Spacer(), //push to end
+            //push to end
+            const Spacer(),
             OutlinedButton(
               onPressed: viewModel.getRandomTerm,
               style: OutlinedButton.styleFrom(

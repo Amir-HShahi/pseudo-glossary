@@ -7,7 +7,7 @@ import 'package:sudo_random/view_model/term_model_view.dart';
 
 void main() async {
   await DatabaseHandler.initializeDatabase();
-  final bool isDataInitialized = await SharedPreference.hasShownIntro();
+  final bool isDataInitialized = await SharedPreference.isDataInitialized();
   if (!isDataInitialized) {
     await DatabaseHandler.insertAllTermsToDatabase();
     SharedPreference.setDataAsInitialized(true);

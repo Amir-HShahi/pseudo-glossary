@@ -8,10 +8,10 @@ import '../model/term_model.dart';
 class TermViewModel with ChangeNotifier {
   final Random _random = Random();
 
-  TermModel mainTerm = TermModel(title: 'READY ?', description: '');
+  TermModel mainTerm = TermModel(title: 'READY ?', description: ''); //init term
 
   int getRandomNumber() {
-    return _random.nextInt(297);
+    return _random.nextInt(DatabaseHandler.recordsCount);
   }
 
   void getRandomTerm() async {

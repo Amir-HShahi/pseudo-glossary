@@ -7,7 +7,7 @@ import 'package:sudo_random/model/term_model.dart';
 import 'package:sudo_random/services/words_info.dart';
 
 class DatabaseHandler {
-  static int recordsCount = 0;
+  static int recordsCount = 297;
   static late Database _db;
   static const String _databaseName = 'glossary_database.db';
 
@@ -35,7 +35,6 @@ class DatabaseHandler {
       );
       id++;
     }
-    recordsCount = id;
   }
 
   static Future<TermModel> retrieveTermModel(int id) async {

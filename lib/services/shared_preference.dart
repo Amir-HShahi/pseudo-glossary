@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SharedPreference {
   static const String _isDataInitialized = 'isDataInitialized';
 
-  static Future<bool> hasShownIntro() async {
+  static Future<bool> isDataInitialized() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getBool(_isDataInitialized) ?? false;
   }
