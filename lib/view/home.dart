@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<TermViewModel>();
-    final displayingTerm = viewModel.mainTerm;
+    final displayingTerm = viewModel.displayingTerm;
 
     void revealDescription() {
       setState(() {
