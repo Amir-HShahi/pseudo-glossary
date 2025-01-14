@@ -1,6 +1,6 @@
 # pseudo-glossary
 
-A small flutter project for ios and android to practice computer science terms.
+A small flutter project for ios and android to practice computer science terms
 
 ## source of terms
 
