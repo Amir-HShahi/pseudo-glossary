@@ -42,7 +42,9 @@ class _HomeState extends State<Home> {
                     fontWeight: FontWeight.bold)),
             SizedBox(height: 32),
             AnimatedOpacity(
-              duration: Duration(milliseconds: 200),
+              duration: displayingTerm.isDescriptionHidden
+                  ? Duration(milliseconds: 0)
+                  : Duration(milliseconds: 200),
               opacity: displayingTerm.isDescriptionHidden ? 0 : 1,
               child: Text(
                 displayingTerm.description,
